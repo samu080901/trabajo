@@ -1,0 +1,202 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RackScope IA - Dashboard</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+
+        <div>
+            <h1>RackScope IA</h1>
+            <p>Cableado Estructurado Dashboard</p>
+        </div>
+
+        <div class="header-info">
+            <span>Rack de 28U</span>
+            <span>Laboratorio de Redes</span>
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- RESUMEN -->
+        <section class="summary">
+
+            <div class="card">
+                <h3>Capacidad</h3>
+                <strong id="capacidad">--</strong>
+                <p>Unidades del rack</p>
+            </div>
+
+            <div class="card">
+                <h3>Equipos</h3>
+                <strong id="cantidad-equipos">--</strong>
+                <p>Elementos registrados</p>
+            </div>
+
+            <div class="card">
+                <h3>Estado</h3>
+                <strong>Operativo</strong>
+                <p>Información documentada</p>
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD PRINCIPAL -->
+        <section class="dashboard">
+
+            <!-- RACK -->
+            <div class="panel rack-panel">
+
+                <div class="panel-title">
+                    <h2>Vista del Rack</h2>
+                    <span>28U</span>
+                </div>
+
+                <div id="rack" class="rack">
+                    <!-- El rack se genera automáticamente con JavaScript -->
+                </div>
+
+            </div>
+
+
+            <!-- INFORMACIÓN DEL EQUIPO -->
+            <div class="panel details-panel">
+
+                <h2>Información del equipo</h2>
+
+                <div id="details">
+                    <p>
+                        Selecciona un equipo del rack para consultar
+                        su información.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EVIDENCIA FOTOGRÁFICA -->
+        <section class="panel photos-panel">
+
+            <div class="panel-title">
+                <h2>Evidencia fotográfica</h2>
+                <span>Registro físico</span>
+            </div>
+
+            <div class="photos">
+
+                <div class="photo-card">
+
+                    <img src="img/pdu1.jpg" alt="PDU - Vista 1">
+
+                    <h3>PDU - Vista 1</h3>
+
+                    <p>
+                        Registro fotográfico de la PDU.
+                    </p>
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img src="img/pdu2.jpg" alt="PDU - Vista 2">
+
+                    <h3>PDU - Vista 2</h3>
+
+                    <p>
+                        Registro fotográfico de la PDU.
+                    </p>
+
+                </div>
+
+
+                <div class="photo-card">
+
+                    <img src="img/pdu3.jpg" alt="PDU - Vista 3">
+
+                    <h3>PDU - Vista 3</h3>
+
+                    <p>
+                        Registro fotográfico de la PDU.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INVENTARIO -->
+        <section class="panel inventory-panel">
+
+            <div class="panel-title">
+
+                <h2>Inventario del rack</h2>
+
+                <span>Física</span>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>U</th>
+                            <th>Equipo</th>
+                            <th>Modelo</th>
+                            <th>Estado</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="inventory-body">
+                        <!-- El inventario se genera con JavaScript -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <p>
+            RackScope IA · Cableado Estructurado
+        </p>
+
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
+```
