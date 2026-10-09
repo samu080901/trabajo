@@ -145,7 +145,28 @@ body {
 .rack-unit:hover {
     background: #303940;
 }
+/* ESTADO DE LAS UNIDADES DEL RACK */
 
+.rack-unit.has-equipment {
+    cursor: pointer;
+}
+
+.rack-unit.has-equipment:hover .unit-content.occupied {
+    background: #1b65c9;
+    box-shadow: 0 0 8px rgba(47, 128, 237, 0.5);
+}
+
+.rack-unit.available {
+    cursor: default;
+}
+
+.rack-unit.available:hover {
+    background: transparent;
+}
+
+.rack-unit.available .unit-content.empty {
+    opacity: 0.65;
+}
 .unit-number {
     width: 45px;
     color: #b9c1c8;
