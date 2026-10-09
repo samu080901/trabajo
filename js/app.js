@@ -38,9 +38,7 @@ function mostrarResumen() {
 
 
 function crearRack() {
-
     const rack = document.getElementById("rack");
-
     rack.innerHTML = "";
 
     for (
@@ -48,7 +46,6 @@ function crearRack() {
         u >= 1;
         u--
     ) {
-
         const unidad = document.createElement("div");
         unidad.className = "rack-unit";
 
@@ -60,12 +57,10 @@ function crearRack() {
         contenido.className = "unit-content";
 
         const equipo = inventario.equipos.find(item =>
-            u >= item.u_inicio &&
-            u <= item.u_fin
+            u >= item.u_inicio && u <= item.u_fin
         );
 
         if (equipo) {
-
             contenido.classList.add("occupied");
 
             contenido.innerHTML = `
@@ -73,19 +68,21 @@ function crearRack() {
                 <small>${equipo.modelo}</small>
             `;
 
+            unidad.classList.add("has-equipment");
+            unidad.title = "Consultar " + equipo.nombre;
+
             unidad.addEventListener("click", () => {
                 mostrarDetalles(equipo);
             });
-
         } else {
-
             contenido.classList.add("empty");
             contenido.textContent = "Unidad disponible";
+            unidad.classList.add("available");
+            unidad.title = "Unidad U" + u + " disponible";
         }
 
         unidad.appendChild(numero);
         unidad.appendChild(contenido);
-
         rack.appendChild(unidad);
     }
 }
