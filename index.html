@@ -1,177 +1,191 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>RackScope IA - Dashboard</title>
-
     <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-    <!-- ENCABEZADO -->
     <header class="header">
-
         <div>
             <h1>RackScope IA</h1>
             <p>Cableado Estructurado Dashboard</p>
         </div>
-
         <div class="header-info">
             <span>Rack de 28U</span>
             <span>Laboratorio de Redes</span>
         </div>
-
     </header>
-
 
     <main class="container">
 
-        <!-- RESUMEN -->
         <section class="summary">
-
             <div class="card">
                 <h3>Capacidad</h3>
                 <strong id="capacidad">--</strong>
                 <p>Unidades del rack</p>
             </div>
-
             <div class="card">
                 <h3>Equipos</h3>
                 <strong id="cantidad-equipos">--</strong>
                 <p>Elementos registrados</p>
             </div>
-
             <div class="card">
                 <h3>Estado</h3>
                 <strong>Operativo</strong>
                 <p>Información documentada</p>
             </div>
-
         </section>
 
-
-        <!-- DASHBOARD PRINCIPAL -->
         <section class="dashboard">
-
-            <!-- RACK -->
             <div class="panel rack-panel">
-
                 <div class="panel-title">
                     <h2>Vista del Rack</h2>
                     <span>28U</span>
                 </div>
-
-                <div id="rack" class="rack">
-                    <!-- El rack se genera automáticamente con JavaScript -->
-                </div>
-
+                <div id="rack" class="rack"></div>
             </div>
 
-
-            <!-- INFORMACIÓN DEL EQUIPO -->
             <div class="panel details-panel">
-
                 <h2>Información del equipo</h2>
-
                 <div id="details">
-                    <p>
-                        Selecciona un equipo del rack para consultar
-                        su información.
-                    </p>
+                    <p>Selecciona un equipo del rack o de la tabla para consultar su información.</p>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- EVIDENCIA FOTOGRÁFICA -->
-       
-<!-- EVIDENCIA FOTOGRÁFICA -->
-<section class="panel photos-panel">
-
-    <div class="panel-title">
-        <h2>Evidencia fotográfica</h2>
-        <span>Registro físico</span>
-    </div>
-
-    <div class="photos">
-
-        <div class="photo-card">
-            <img src="img/pdu1.jpg" alt="PDU instalada en el rack">
-
-            <h3>PDU del rack</h3>
-
-            <p>
-                Registro fotográfico de la distribución eléctrica.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-
-        <!-- INVENTARIO -->
-        <section class="panel inventory-panel">
-
+        <section class="panel photos-panel">
             <div class="panel-title">
+                <h2>Evidencia fotográfica</h2>
+                <span>Registro físico</span>
+            </div>
+            <div class="photos">
+                <div class="photo-card">
+                    <img src="img/pdu1.jpg" alt="PDU instalada en el rack">
+                    <h3>PDU del rack</h3>
+                    <p>Registro fotográfico de la distribución eléctrica.</p>
+                </div>
+            </div>
+        </section>
 
-                <h2>Inventario del rack</h2>
+        <!-- GESTIÓN DEL INVENTARIO -->
+        <section class="panel management-panel">
+            <div class="panel-title">
+                <h2>Gestión del inventario</h2>
+                <p>PRUEBA DEL FORMULARIO</p>
+                <span>Administración</span>
+            </div>
+            <p class="management-description">
+                Agrega equipos nuevos o selecciona un equipo registrado para editarlo.
+            </p>
 
-                <span>Física</span>
+            <form id="equipment-form">
+                <input type="hidden" id="edit-index" value="">
 
+                <div class="form-grid">
+                    <label for="equipo-nombre">
+                        Nombre del equipo
+                        <input type="text" id="equipo-nombre" maxlength="100" required>
+                    </label>
+
+                    <label for="equipo-modelo">
+                        Modelo
+                        <input type="text" id="equipo-modelo" maxlength="100" required>
+                    </label>
+
+                    <label for="equipo-u-inicio">
+                        Unidad inicial (U)
+                        <input type="number" id="equipo-u-inicio" min="1" max="28" required>
+                    </label>
+
+                    <label for="equipo-u-fin">
+                        Unidad final (U)
+                        <input type="number" id="equipo-u-fin" min="1" max="28" required>
+                    </label>
+
+                    <label for="equipo-estado">
+                        Estado
+                        <select id="equipo-estado" required>
+                            <option value="Confirmado">Confirmado</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En revisión">En revisión</option>
+                            <option value="Fuera de servicio">Fuera de servicio</option>
+                        </select>
+                    </label>
+
+                    <label for="equipo-vlan">
+                        VLAN
+                        <input type="text" id="equipo-vlan" maxlength="100" placeholder="Ej. 10, 20, 30">
+                    </label>
+
+                    <label for="equipo-ip">
+                        IP / Información lógica
+                        <input type="text" id="equipo-ip" maxlength="100" placeholder="Ej. 192.168.1.10">
+                    </label>
+
+                    <label for="equipo-electrica">
+                        Información eléctrica
+                        <input type="text" id="equipo-electrica" maxlength="150" placeholder="Ej. PDU Quest 1U">
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="guardar-equipo">Agregar equipo</button>
+                    <button type="button" id="cancelar-edicion" class="secondary-button" hidden>
+                        Cancelar edición
+                    </button>
+                </div>
+
+                <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="backup-actions">
+                <button type="button" id="exportar-inventario">Exportar inventario JSON</button>
+
+                <label class="import-button" for="importar-inventario">
+                    Importar inventario JSON
+                    <input type="file" id="importar-inventario" accept=".json,application/json">
+                </label>
             </div>
 
+            <p class="management-note">
+                Los cambios se guardarán en este navegador. Exporta el JSON para conservar
+                una copia de seguridad o recuperar el inventario en otro equipo.
+            </p>
+        </section>
+
+        <!-- TABLA DEL INVENTARIO -->
+        <section class="panel inventory-panel">
+            <div class="panel-title">
+                <h2>Inventario del rack</h2>
+                <span>Física</span>
+            </div>
 
             <div class="table-container">
-
                 <table>
-
                     <thead>
-
                         <tr>
                             <th>U</th>
                             <th>Equipo</th>
                             <th>Modelo</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
-
                     </thead>
-
-
-                    <tbody id="inventory-body">
-                        <!-- El inventario se genera con JavaScript -->
-                    </tbody>
-
+                    <tbody id="inventory-body"></tbody>
                 </table>
-
             </div>
-
         </section>
 
     </main>
 
-
-    <!-- PIE DE PÁGINA -->
     <footer>
-
-        <p>
-            RackScope IA · Cableado Estructurado
-        </p>
-
+        <p>RackScope IA · Cableado Estructurado</p>
     </footer>
 
-
     <script src="js/app.js"></script>
-
 </body>
-
 </html>
-```
