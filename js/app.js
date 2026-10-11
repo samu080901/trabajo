@@ -67,6 +67,21 @@ function validarInventario(datos) {
         }
     }
 
+    // Impedir que dos equipos ocupen las mismas unidades.
+    for (let i = 0; i < datos.equipos.length; i++) {
+        for (let j = i + 1; j < datos.equipos.length; j++) {
+            const equipoA = datos.equipos[i];
+            const equipoB = datos.equipos[j];
+
+            if (
+                equipoA.u_inicio <= equipoB.u_fin &&
+                equipoA.u_fin >= equipoB.u_inicio
+            ) {
+                return false;
+            }
+        }
+    }
+
     return true;
 }
 
@@ -80,10 +95,12 @@ function guardarInventario() {
         return true;
     } catch (error) {
         console.error(error);
+
         mostrarMensaje(
             "No se pudo guardar en el navegador. Exporta una copia del inventario.",
             true
         );
+
         return false;
     }
 }
@@ -199,6 +216,7 @@ function mostrarDetalles(indice) {
     const acciones = document.createElement("div");
     acciones.className = "form-actions";
     acciones.append(editar, eliminar);
+
     details.appendChild(acciones);
 }
 
@@ -213,12 +231,16 @@ function mostrarInventario() {
             ? `U${equipo.u_inicio}`
             : `U${equipo.u_inicio} - U${equipo.u_fin}`;
 
-        [ubicacion, equipo.nombre, equipo.modelo, equipo.estado || "Pendiente"]
-            .forEach(valor => {
-                const celda = document.createElement("td");
-                celda.textContent = valor;
-                fila.appendChild(celda);
-            });
+        [
+            ubicacion,
+            equipo.nombre,
+            equipo.modelo,
+            equipo.estado || "Pendiente"
+        ].forEach(valor => {
+            const celda = document.createElement("td");
+            celda.textContent = valor;
+            fila.appendChild(celda);
+        });
 
         const acciones = document.createElement("td");
 
@@ -245,6 +267,7 @@ function crearBoton(texto, clase) {
     boton.type = "button";
     boton.textContent = texto;
     boton.className = clase;
+
     return boton;
 }
 
@@ -254,8 +277,14 @@ function conectarFormulario() {
     formulario.addEventListener("submit", evento => {
         evento.preventDefault();
 
-        const inicio = Number(document.getElementById("equipo-u-inicio").value);
-        const fin = Number(document.getElementById("equipo-u-fin").value);
+        const inicio = Number(
+            document.getElementById("equipo-u-inicio").value
+        );
+
+        const fin = Number(
+            document.getElementById("equipo-u-fin").value
+        );
+
         const indiceTexto = document.getElementById("edit-index").value;
         const editando = indiceTexto !== "";
         const indice = editando ? Number(indiceTexto) : -1;
@@ -287,8 +316,14 @@ function conectarFormulario() {
             return;
         }
 
-        if (editando && !inventario.equipos[indice]) {
-            mostrarMensaje("No se encontró el equipo que intentas editar.", true);
+        if (
+            editando &&
+            (!Number.isInteger(indice) || !inventario.equipos[indice])
+        ) {
+            mostrarMensaje(
+                "No se encontró el equipo que intentas editar.",
+                true
+            );
             return;
         }
 
@@ -299,26 +334,48 @@ function conectarFormulario() {
         });
 
         if (ocupado) {
-            mostrarMensaje("Esas unidades ya están ocupadas por otro equipo.", true);
+            mostrarMensaje(
+                "Esas unidades ya están ocupadas por otro equipo.",
+                true
+            );
             return;
         }
 
-        if (editando) {
-            inventario.equipos[indice] = equipo;
-        } else {
-            inventario.equipos.push(equipo);
-        }
+     const equipoAnterior = editando
+    ? inventario.equipos[indice]
+    : null;
 
-        if (!guardarInventario()) return;
+```javascript
+const equipoAnterior = editando
+    ? { ...inventario.equipos[indice] }
+    : null;
 
-        actualizarDashboard();
+if (editando) {
+    inventario.equipos[indice] = equipo;
+} else {
+    inventario.equipos.push(equipo);
+}
+
+if (!guardarInventario()) {
+    if (editando) {
+        inventario.equipos[indice] = equipoAnterior;
+    } else {
+        inventario.equipos.pop();
+    }
+    return;
+}
+```
+    actualizarDashboard();
         formulario.reset();
+
         document.getElementById("edit-index").value = "";
         document.getElementById("guardar-equipo").textContent = "Agregar equipo";
         document.getElementById("cancelar-edicion").hidden = true;
 
         mostrarMensaje(
-            editando ? "Equipo actualizado y guardado." : "Equipo agregado y guardado."
+            editando
+                ? "Equipo actualizado y guardado."
+                : "Equipo agregado y guardado."
         );
 
         mostrarDetalles(inventario.equipos.indexOf(equipo));
@@ -329,6 +386,7 @@ function conectarFormulario() {
         document.getElementById("edit-index").value = "";
         document.getElementById("guardar-equipo").textContent = "Agregar equipo";
         document.getElementById("cancelar-edicion").hidden = true;
+
         mostrarMensaje("Edición cancelada.");
     });
 }
@@ -342,10 +400,12 @@ function prepararEdicion(indice) {
     document.getElementById("equipo-modelo").value = equipo.modelo;
     document.getElementById("equipo-u-inicio").value = equipo.u_inicio;
     document.getElementById("equipo-u-fin").value = equipo.u_fin;
-    document.getElementById("equipo-estado").value = equipo.estado || "Pendiente";
+    document.getElementById("equipo-estado").value =
+        equipo.estado || "Pendiente";
     document.getElementById("equipo-vlan").value = equipo.vlan || "";
     document.getElementById("equipo-ip").value = equipo.ip || "";
-    document.getElementById("equipo-electrica").value = equipo.electrica || "";
+    document.getElementById("equipo-electrica").value =
+        equipo.electrica || "";
 
     document.getElementById("guardar-equipo").textContent = "Guardar cambios";
     document.getElementById("cancelar-edicion").hidden = false;
@@ -374,8 +434,8 @@ function eliminarEquipo(indice) {
     }
 
     actualizarDashboard();
-    document.getElementById("details").innerHTML =
-        "<p>Equipo eliminado del inventario.</p>";
+    document.getElementById("details").textContent =
+        "Equipo eliminado del inventario.";
 
     mostrarMensaje("Equipo eliminado y cambios guardados.");
 }
@@ -392,60 +452,63 @@ function conectarRespaldos() {
 
         enlace.href = url;
         enlace.download = "inventario-respaldo.json";
+        document.body.appendChild(enlace);
         enlace.click();
+        enlace.remove();
 
-        URL.revokeObjectURL(url);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+
         mostrarMensaje("Respaldo JSON exportado.");
     });
 
-    document.getElementById("importar-inventario").addEventListener("change", async evento => {
-        const archivo = evento.target.files[0];
-        if (!archivo) return;
+    document.getElementById("importar-inventario").addEventListener(
+        "change",
+        async evento => {
+            const archivo = evento.target.files[0];
+            if (!archivo) return;
 
-        try {
-            const datos = JSON.parse(await archivo.text());
+            try {
+                const datos = JSON.parse(await archivo.text());
 
-            if (!validarInventario(datos)) {
-                throw new Error("El archivo no tiene un inventario válido.");
+                if (!validarInventario(datos)) {
+                    throw new Error(
+                        "El archivo no tiene un inventario válido."
+                    );
+                }
+
+                if (!confirm(
+                    "Importar reemplazará el inventario actual de este navegador. ¿Continuar?"
+                )) {
+                    return;
+                }
+
+                const anterior = inventario;
+                inventario = datos;
+
+                if (!guardarInventario()) {
+                    inventario = anterior;
+                    return;
+                }
+
+                actualizarDashboard();
+
+                document.getElementById("equipment-form").reset();
+                document.getElementById("edit-index").value = "";
+                document.getElementById("guardar-equipo").textContent =
+                    "Agregar equipo";
+                document.getElementById("cancelar-edicion").hidden = true;
+
+                mostrarMensaje("Inventario importado correctamente.");
+            } catch (error) {
+                mostrarMensaje(
+                    "No se pudo importar: " + error.message,
+                    true
+                );
+            } finally {
+                evento.target.value = "";
             }
-
-            const ocupado = datos.equipos.some((equipo, indice) =>
-                datos.equipos.some((otro, otroIndice) =>
-                    indice !== otroIndice &&
-                    equipo.u_inicio <= otro.u_fin &&
-                    equipo.u_fin >= otro.u_inicio
-                )
-            );
-
-            if (ocupado) {
-                throw new Error("El archivo contiene equipos con unidades superpuestas.");
-            }
-
-            if (!confirm("Importar reemplazará el inventario actual de este navegador. ¿Continuar?")) {
-                return;
-            }
-
-            const anterior = inventario;
-            inventario = datos;
-
-            if (!guardarInventario()) {
-                inventario = anterior;
-                return;
-            }
-
-            actualizarDashboard();
-            document.getElementById("equipment-form").reset();
-            document.getElementById("edit-index").value = "";
-            document.getElementById("guardar-equipo").textContent = "Agregar equipo";
-            document.getElementById("cancelar-edicion").hidden = true;
-
-            mostrarMensaje("Inventario importado correctamente.");
-        } catch (error) {
-            mostrarMensaje("No se pudo importar: " + error.message, true);
-        } finally {
-            evento.target.value = "";
         }
-    });
+    );
 }
 
 function mostrarMensaje(mensaje, error = false) {
@@ -456,5 +519,5 @@ function mostrarMensaje(mensaje, error = false) {
     elemento.classList.toggle("error-message", error);
 }
 
-// Iniciar el dashboard
+// Iniciar el dashboard.
 cargarInventario();
