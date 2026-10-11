@@ -1,0 +1,4 @@
+*.bak
+*.antes-recuperar
+*.antes-pruebas.json
+index.html.fotos-actual.html
