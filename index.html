@@ -4,81 +4,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RackScope IA - Dashboard</title>
+    <meta name="description" content="Dashboard de inventario físico, lógico y eléctrico del rack de telecomunicaciones del Laboratorio de Redes.">
+    <title>RackScope IA | Cableado Estructurado</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-
-    <header class="header">
-        <div>
-            <h1>RackScope IA</h1>
-            <p>Cableado Estructurado Dashboard</p>
+    <header class="header" id="inicio">
+        <div class="header-main">
+            <div class="brand-mark">RS</div>
+            <div>
+                <p class="eyebrow">DASHBOARD TÉCNICO</p>
+                <h1>RackScope IA</h1>
+                <p class="header-subtitle">Del bastidor al cableado estructurado</p>
+            </div>
         </div>
+
         <div class="header-info">
             <span>Rack de 28U</span>
+            <span>Universidad Compensar</span>
             <span>Laboratorio de Redes</span>
         </div>
     </header>
 
-    <main class="container">
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#lo-visto">Lo visto</a>
+        <a href="#conceptos">Conceptos</a>
+        <a href="#actividad">Actividad</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#prompt-ia">Prompt IA</a>
+        <a href="#github">GitHub</a>
+        <a href="#glosario">Glosario y fuentes</a>
+    </nav>
 
-        <section class="summary">
-            <div class="card">
-                <h3>Capacidad</h3>
-                <strong id="capacidad">--</strong>
-                <p>Unidades del rack</p>
+    <main class="container">
+        <section class="welcome-section">
+            <div>
+                <p class="eyebrow">CABLEADO ESTRUCTURADO</p>
+                <h2>Inventario y organización del rack</h2>
+                <p>
+                    Visualización de la infraestructura física, lógica y eléctrica
+                    del Laboratorio de Redes y Telecomunicaciones.
+                </p>
+                <p class="student-line">
+                    <strong>Estudiante:</strong>
+                    <span id="student-name">Samuel Sierra Garcia</span>
+                    <span class="separator">·</span>
+                    <strong>Actualización:</strong>
+                    <time id="fecha-actualizacion">Por registrar</time>
+                </p>
             </div>
-            <div class="card">
-                <h3>Equipos</h3>
-                <strong id="cantidad-equipos">--</strong>
-                <p>Elementos registrados</p>
-            </div>
-            <div class="card">
-                <h3>Estado</h3>
-                <strong>Operativo</strong>
-                <p>Información documentada</p>
+            <div class="project-status">
+                <span class="status-dot"></span>
+                Proyecto de inventario
+                <small>HTML, CSS, JavaScript y JSON</small>
             </div>
         </section>
 
-        <section class="dashboard">
-            <div class="panel rack-panel">
-                <div class="panel-title">
-                    <h2>Vista del Rack</h2>
-                    <span>28U</span>
+        <div class="notice">
+            <span class="notice-icon">i</span>
+            <div>
+                <strong>HTML local y descargable</strong>
+                <p>
+                    El dashboard utiliza archivos HTML, CSS, JavaScript y JSON.
+                    Para cargar el inventario inicial, abre el proyecto con Live Server.
+                </p>
+            </div>
+        </div>
+
+        <section class="summary" aria-label="Indicadores del proyecto">
+            <article class="card metric-card">
+                <div class="metric-icon">01</div>
+                <div>
+                    <p class="metric-label">Fuente de verdad</p>
+                    <strong class="metric-value">1</strong>
+                    <p class="metric-description">Un inventario de referencia</p>
                 </div>
-                <div id="rack" class="rack"></div>
+            </article>
+
+            <article class="card metric-card">
+                <div class="metric-icon">03</div>
+                <div>
+                    <p class="metric-label">Capas relacionadas</p>
+                    <strong class="metric-value">3</strong>
+                    <p class="metric-description">Física, lógica y eléctrica</p>
+                </div>
+            </article>
+
+            <article class="card metric-card">
+                <div class="metric-icon">00</div>
+                <div>
+                    <p class="metric-label">Datos falsos</p>
+                    <strong class="metric-value">0</strong>
+                    <p class="metric-description">No se deben inventar datos técnicos</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel section-panel" id="lo-visto">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">01 / APRENDIZAJE</p>
+                    <h2>Lo visto en clase</h2>
+                </div>
+                <span class="tag">Fundamentos</span>
+            </div>
+
+            <p>
+                El cableado estructurado permite organizar las conexiones y los
+                equipos de una red. La identificación correcta de cada elemento
+                facilita el mantenimiento, la administración y la detección de fallas.
+            </p>
+
+            <div class="three-columns">
+                <article class="mini-card">
+                    <h3>Organización</h3>
+                    <p>Ubicar cada equipo en su unidad U y documentar su posición.</p>
+                </article>
+                <article class="mini-card">
+                    <h3>Identificación</h3>
+                    <p>Registrar nombres, modelos, conexiones y datos disponibles.</p>
+                </article>
+                <article class="mini-card">
+                    <h3>Documentación</h3>
+                    <p>Mantener el inventario actualizado y conservar copias de respaldo.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel section-panel" id="conceptos">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">02 / INFRAESTRUCTURA</p>
+                    <h2>Las tres capas del inventario</h2>
+                </div>
+                <span class="tag">Física · Lógica · Eléctrica</span>
+            </div>
+
+            <div class="three-columns">
+                <article class="layer-card physical">
+                    <span class="layer-number">01</span>
+                    <h3>Capa física</h3>
+                    <p>Ubicación U, nombre del equipo, modelo y ocupación del rack.</p>
+                    <span class="layer-example">Ejemplo: U25 · Cisco ISR 4331</span>
+                </article>
+
+                <article class="layer-card logical">
+                    <span class="layer-number">02</span>
+                    <h3>Capa lógica</h3>
+                    <p>VLAN, dirección IP y función de red cuando están documentadas.</p>
+                    <span class="layer-example">Ejemplo: VLAN 10, 20 y 30</span>
+                </article>
+
+                <article class="layer-card electrical">
+                    <span class="layer-number">03</span>
+                    <h3>Capa eléctrica</h3>
+                    <p>Alimentación y relación con la PDU. Los datos deben verificarse físicamente.</p>
+                    <span class="layer-example">Ejemplo: PDU Quest</span>
+                </article>
+            </div>
+
+            <div class="standards-note">
+                <strong>Normas de referencia</strong>
+                <p>
+                    ANSI/TIA-606 para la administración e identificación de la
+                    infraestructura y ANSI/TIA-568 para el cableado de telecomunicaciones.
+                    La aplicación concreta debe verificarse según el alcance de cada norma.
+                </p>
+            </div>
+        </section>
+
+        <section class="panel section-panel" id="actividad">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">03 / PROCEDIMIENTO</p>
+                    <h2>Actividad realizada</h2>
+                </div>
+                <span class="tag">Inventario</span>
+            </div>
+
+            <ol class="activity-list">
+                <li>Organizar los equipos según la unidad U registrada.</li>
+                <li>Relacionar la información física, lógica y eléctrica disponible.</li>
+                <li>Representar gráficamente las 28U del rack.</li>
+                <li>Implementar consulta, edición, registro y eliminación de equipos.</li>
+                <li>Probar las validaciones y las funciones de respaldo JSON.</li>
+            </ol>
+
+            <p class="small-note">
+                Los resultados de las pruebas deben corresponder a lo verificado
+                en el navegador y en los archivos del proyecto.
+            </p>
+        </section>
+
+        <section class="dashboard section-panel" id="dashboard">
+            <div class="panel rack-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">04 / VISTA FÍSICA</p>
+                        <h2>Distribución del rack</h2>
+                    </div>
+                    <span class="tag">28U</span>
+                </div>
+
+                <div class="rack-legend">
+                    <span><i class="legend-square occupied-legend"></i> Ocupada</span>
+                    <span><i class="legend-square empty-legend"></i> Disponible</span>
+                </div>
+
+                <div id="rack" class="rack" aria-label="Vista interactiva de las unidades del rack">
+                    <p class="loading-message">Cargando inventario...</p>
+                </div>
+
+                <p class="small-note">
+                    Selecciona una unidad ocupada para consultar los datos del equipo.
+                    Las unidades de un equipo de varias U se representan en una sola tarjeta.
+                </p>
             </div>
 
             <div class="panel details-panel">
-                <h2>Información del equipo</h2>
-                <div id="details">
-                    <p>Selecciona un equipo del rack o de la tabla para consultar su información.</p>
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">CONSULTA</p>
+                        <h2>Información del equipo</h2>
+                    </div>
+                </div>
+
+                <div id="details" aria-live="polite">
+                    <p>Selecciona un equipo del rack o de la tabla.</p>
                 </div>
             </div>
         </section>
 
-        <section class="panel photos-panel">
-            <div class="panel-title">
-                <h2>Evidencia fotográfica</h2>
-                <span>Registro físico</span>
+        <section class="panel photos-panel section-panel" id="evidencias">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">05 / EVIDENCIAS</p>
+                    <h2>Registro fotográfico</h2>
+                </div>
+                <span class="tag">Infraestructura real</span>
             </div>
+
+            <p class="section-intro">
+                Evidencia disponible del componente eléctrico. Completa esta sección
+                con fotografías reales del rack y su zona frontal para cumplir la guía.
+            </p>
+
             <div class="photos">
-                <div class="photo-card">
-                    <img src="img/pdu1.jpg" alt="PDU instalada en el rack">
-                    <h3>PDU del rack</h3>
-                    <p>Registro fotográfico de la distribución eléctrica.</p>
-                </div>
+                <article class="photo-card">
+                    <img src="img/pdu1.jpg" alt="PDU Quest del rack de telecomunicaciones" loading="lazy">
+                    <div class="photo-caption">
+                        <h3>PDU Quest</h3>
+                        <p>Imagen disponible del componente eléctrico.</p>
+                    </div>
+                </article>
+
+                <article class="photo-placeholder">
+                    <div class="placeholder-icon">+</div>
+                    <h3>Rack completo</h3>
+                    <p>Falta agregar una fotografía real de todo el rack.</p>
+                    <code>img/rack_completo.jpg</code>
+                </article>
+
+                <article class="photo-placeholder">
+                    <div class="placeholder-icon">+</div>
+                    <h3>Vista frontal de equipos</h3>
+                    <p>Falta agregar una fotografía real de los equipos instalados.</p>
+                    <code>img/vista_frontal.jpg</code>
+                </article>
             </div>
         </section>
 
-        <!-- GESTIÓN DEL INVENTARIO -->
-        <section class="panel management-panel">
-            <div class="panel-title">
-                <h2>Gestión del inventario</h2>
-             <span>Administración</span>
+        <section class="panel management-panel section-panel" id="gestion">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">06 / ADMINISTRACIÓN</p>
+                    <h2>Gestión del inventario</h2>
+                </div>
+                <span class="tag">CRUD</span>
             </div>
-            <p class="management-description">
+
+            <p class="section-intro">
                 Agrega equipos nuevos o selecciona un equipo registrado para editarlo.
+                Comprueba la ubicación física antes de registrar cambios.
             </p>
 
             <form id="equipment-form">
@@ -106,7 +315,7 @@
                     </label>
 
                     <label for="equipo-estado">
-                        Estado
+                        Estado de verificación
                         <select id="equipo-estado" required>
                             <option value="Confirmado">Confirmado</option>
                             <option value="Pendiente">Pendiente</option>
@@ -121,18 +330,18 @@
                     </label>
 
                     <label for="equipo-ip">
-                        IP / Información lógica
-                        <input type="text" id="equipo-ip" maxlength="100" placeholder="Ej. 192.168.1.10">
+                        IP / información lógica
+                        <input type="text" id="equipo-ip" maxlength="100" placeholder="Dato registrado o N/A">
                     </label>
 
                     <label for="equipo-electrica">
                         Información eléctrica
-                        <input type="text" id="equipo-electrica" maxlength="150" placeholder="Ej. PDU Quest 1U">
+                        <input type="text" id="equipo-electrica" maxlength="150" placeholder="Ej. PDU Quest">
                     </label>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" id="guardar-equipo">Agregar equipo</button>
+                    <button type="submit" id="guardar-equipo" class="primary-button">Agregar equipo</button>
                     <button type="button" id="cancelar-edicion" class="secondary-button" hidden>
                         Cancelar edición
                     </button>
@@ -142,7 +351,9 @@
             </form>
 
             <div class="backup-actions">
-                <button type="button" id="exportar-inventario">Exportar inventario JSON</button>
+                <button type="button" id="exportar-inventario" class="secondary-button">
+                    Exportar inventario JSON
+                </button>
 
                 <label class="import-button" for="importar-inventario">
                     Importar inventario JSON
@@ -151,23 +362,25 @@
             </div>
 
             <p class="management-note">
-                Los cambios se guardarán en este navegador. Exporta el JSON para conservar
-                una copia de seguridad o recuperar el inventario en otro equipo.
+                Los cambios se guardan en este navegador y no se sincronizan automáticamente
+                con GitHub ni con otros usuarios. Exporta el JSON para guardar una copia.
             </p>
         </section>
 
-        <!-- TABLA DEL INVENTARIO -->
-        <section class="panel inventory-panel">
-            <div class="panel-title">
-                <h2>Inventario del rack</h2>
-                <span>Física</span>
+        <section class="panel inventory-panel section-panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">07 / REGISTRO</p>
+                    <h2>Inventario de equipos</h2>
+                </div>
+                <span class="tag">Consulta y edición</span>
             </div>
 
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>U</th>
+                            <th>Ubicación</th>
                             <th>Equipo</th>
                             <th>Modelo</th>
                             <th>Estado</th>
@@ -179,12 +392,139 @@
             </div>
         </section>
 
+        <section class="panel section-panel" id="prompt-ia">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">08 / APOYO DIGITAL</p>
+                    <h2>Prompt IA</h2>
+                </div>
+                <span class="tag">Asistencia</span>
+            </div>
+
+            <p>
+                La inteligencia artificial puede ayudar a organizar la documentación,
+                revisar el código y detectar posibles inconsistencias. La información
+                técnica debe contrastarse con el inventario y con la infraestructura real.
+            </p>
+
+            <div class="prompt-example">
+                <p id="prompt-text">
+                    Revisa un dashboard de inventario de un rack de 28U.
+                    Verifica la estructura de HTML, CSS, JavaScript y JSON;
+                    comprueba que no haya ubicaciones superpuestas y separa los
+                    datos físicos, lógicos y eléctricos. No inventes modelos, VLAN,
+                    direcciones IP ni evidencias fotográficas.
+                </p>
+                <button type="button" id="copiar-prompt" class="secondary-button">
+                    Copiar prompt
+                </button>
+                <p id="prompt-message" class="small-note" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="panel section-panel" id="github">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">09 / CONTROL DE VERSIONES</p>
+                    <h2>Repositorio GitHub</h2>
+                </div>
+                <span class="tag">Git</span>
+            </div>
+
+            <p>
+                El repositorio contiene el código y el historial de versiones del proyecto.
+                Los cambios guardados en el navegador no modifican por sí solos los archivos
+                del repositorio.
+            </p>
+
+            <div class="github-card">
+                <div>
+                    <strong>RackScope IA — Repositorio</strong>
+                    <p>Consulta los archivos, commits y versiones publicadas.</p>
+                    <a href="https://github.com/samu080901/trabajo" target="_blank" rel="noopener noreferrer">
+                        github.com/samu080901/trabajo
+                    </a>
+                </div>
+                <a class="primary-button link-button"
+                   href="https://samu080901.github.io/trabajo/"
+                   target="_blank" rel="noopener noreferrer">
+                    Ver página publicada
+                </a>
+            </div>
+        </section>
+
+        <section class="panel section-panel" id="glosario">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">10 / CONSULTA</p>
+                    <h2>Glosario y fuentes</h2>
+                </div>
+                <span class="tag">Referencias</span>
+            </div>
+
+            <div class="glossary-list">
+                <article>
+                    <h3>Unidad U</h3>
+                    <p>Medida vertical utilizada para expresar la altura de equipos de rack.</p>
+                </article>
+                <article>
+                    <h3>VLAN</h3>
+                    <p>Red de área local virtual que permite segmentar una red lógica.</p>
+                </article>
+                <article>
+                    <h3>IP</h3>
+                    <p>Dirección utilizada para identificar una interfaz dentro de una red IP.</p>
+                </article>
+                <article>
+                    <h3>PDU</h3>
+                    <p>Unidad de distribución de energía eléctrica para equipos.</p>
+                </article>
+                <article>
+                    <h3>Inventario JSON</h3>
+                    <p>Archivo estructurado que almacena la configuración del rack y sus equipos.</p>
+                </article>
+            </div>
+
+            <h3 class="sources-heading">Fuentes de consulta</h3>
+            <ul class="source-list">
+                <li>
+                    <a href="https://www.tiaonline.org/" target="_blank" rel="noopener noreferrer">
+                        Telecommunications Industry Association (TIA)
+                    </a>
+                    — información institucional sobre normas de telecomunicaciones.
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+                        MDN Web Docs: JavaScript
+                    </a>
+                    — referencia de programación web.
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="noopener noreferrer">
+                        MDN Web Docs: JSON
+                    </a>
+                    — documentación sobre el formato de datos JSON.
+                </li>
+                <li>
+                    <a href="https://docs.github.com/es" target="_blank" rel="noopener noreferrer">
+                        Documentación oficial de GitHub
+                    </a>
+                    — repositorios y control de versiones.
+                </li>
+            </ul>
+
+            <p class="small-note">
+                Las fuentes son referencias generales. Para una entrega técnica,
+                consulta la versión aplicable de cada norma y verifica los datos
+                del laboratorio con evidencia real.
+            </p>
+        </section>
     </main>
 
-    <footer>
-        <p>RackScope IA · Cableado Estructurado</p>
+    <footer class="footer">
+        <strong>RackScope IA</strong>
+        <p>Proyecto académico · Cableado Estructurado</p>
+        <p>Inventario documentado del Laboratorio de Redes y Telecomunicaciones</p>
     </footer>
-
-    <script src="js/app.js"></script>
 </body>
 </html>
