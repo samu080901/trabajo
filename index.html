@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,12 +33,16 @@
         <a href="#conceptos">Conceptos</a>
         <a href="#actividad">Actividad</a>
         <a href="#dashboard">Dashboard</a>
+        <a href="#evidencias">Fotografías</a>
+        <a href="#gestion">Gestión</a>
         <a href="#prompt-ia">Prompt IA</a>
         <a href="#github">GitHub</a>
         <a href="#glosario">Glosario y fuentes</a>
     </nav>
 
     <main class="container">
+
+        <!-- PRESENTACIÓN DEL PROYECTO -->
         <section class="welcome-section">
             <div>
                 <p class="eyebrow">CABLEADO ESTRUCTURADO</p>
@@ -47,6 +51,7 @@
                     Visualización de la infraestructura física, lógica y eléctrica
                     del Laboratorio de Redes y Telecomunicaciones.
                 </p>
+
                 <p class="student-line">
                     <strong>Estudiante:</strong>
                     <span id="student-name">Samuel Sierra Garcia</span>
@@ -55,6 +60,7 @@
                     <time id="fecha-actualizacion">Por registrar</time>
                 </p>
             </div>
+
             <div class="project-status">
                 <span class="status-dot"></span>
                 Proyecto de inventario
@@ -73,6 +79,7 @@
             </div>
         </div>
 
+        <!-- INDICADORES -->
         <section class="summary" aria-label="Indicadores del proyecto">
             <article class="card metric-card">
                 <div class="metric-icon">01</div>
@@ -102,6 +109,7 @@
             </article>
         </section>
 
+        <!-- LO VISTO EN CLASE -->
         <section class="panel section-panel" id="lo-visto">
             <div class="section-heading">
                 <div>
@@ -122,10 +130,12 @@
                     <h3>Organización</h3>
                     <p>Ubicar cada equipo en su unidad U y documentar su posición.</p>
                 </article>
+
                 <article class="mini-card">
                     <h3>Identificación</h3>
                     <p>Registrar nombres, modelos, conexiones y datos disponibles.</p>
                 </article>
+
                 <article class="mini-card">
                     <h3>Documentación</h3>
                     <p>Mantener el inventario actualizado y conservar copias de respaldo.</p>
@@ -133,6 +143,7 @@
             </div>
         </section>
 
+        <!-- CONCEPTOS -->
         <section class="panel section-panel" id="conceptos">
             <div class="section-heading">
                 <div>
@@ -175,6 +186,7 @@
             </div>
         </section>
 
+        <!-- ACTIVIDAD -->
         <section class="panel section-panel" id="actividad">
             <div class="section-heading">
                 <div>
@@ -198,6 +210,7 @@
             </p>
         </section>
 
+        <!-- DASHBOARD DEL RACK -->
         <section class="dashboard section-panel" id="dashboard">
             <div class="panel rack-panel">
                 <div class="section-heading">
@@ -209,11 +222,18 @@
                 </div>
 
                 <div class="rack-legend">
-                    <span><i class="legend-square occupied-legend"></i> Ocupada</span>
-                    <span><i class="legend-square empty-legend"></i> Disponible</span>
+                    <span>
+                        <i class="legend-square occupied-legend"></i>
+                        Ocupada
+                    </span>
+                    <span>
+                        <i class="legend-square empty-legend"></i>
+                        Disponible
+                    </span>
                 </div>
 
-                <div id="rack" class="rack" aria-label="Vista interactiva de las unidades del rack">
+                <div id="rack" class="rack"
+                     aria-label="Vista interactiva de las unidades del rack">
                     <p class="loading-message">Cargando inventario...</p>
                 </div>
 
@@ -237,6 +257,7 @@
             </div>
         </section>
 
+        <!-- REGISTRO FOTOGRÁFICO: UNA SOLA SECCIÓN -->
         <section class="panel photos-panel section-panel" id="evidencias">
             <div class="section-heading">
                 <div>
@@ -247,35 +268,52 @@
             </div>
 
             <p class="section-intro">
-                Evidencia disponible del componente eléctrico. Completa esta sección
-                con fotografías reales del rack y su zona frontal para cumplir la guía.
+                Fotografías de los racks de comunicaciones y del componente
+                eléctrico del Laboratorio de Redes.
             </p>
 
             <div class="photos">
+
                 <article class="photo-card">
-                    <img src="img/pdu1.jpg" alt="PDU Quest del rack de telecomunicaciones" loading="lazy">
+                    <img
+                        src="img/rack1.png"
+                        alt="Fotografía del primer rack de comunicaciones"
+                        loading="lazy"
+                    >
                     <div class="photo-caption">
-                        <h3>PDU Quest</h3>
-                        <p>Imagen disponible del componente eléctrico.</p>
+                        <h3>Rack 1</h3>
+                        <p>Vista del primer rack de comunicaciones.</p>
                     </div>
                 </article>
 
-                <article class="photo-placeholder">
-                    <div class="placeholder-icon">+</div>
-                    <h3>Rack completo</h3>
-                    <p>Falta agregar una fotografía real de todo el rack.</p>
-                    <code>img/rack_completo.jpg</code>
+                <article class="photo-card">
+                    <img
+                        src="img/rack2.png"
+                        alt="Fotografía del segundo rack de comunicaciones"
+                        loading="lazy"
+                    >
+                    <div class="photo-caption">
+                        <h3>Rack 2</h3>
+                        <p>Vista del segundo rack de comunicaciones.</p>
+                    </div>
                 </article>
 
-                <article class="photo-placeholder">
-                    <div class="placeholder-icon">+</div>
-                    <h3>Vista frontal de equipos</h3>
-                    <p>Falta agregar una fotografía real de los equipos instalados.</p>
-                    <code>img/vista_frontal.jpg</code>
+                <article class="photo-card">
+                    <img
+                        src="img/pdu1.jpg"
+                        alt="PDU Quest del rack de telecomunicaciones"
+                        loading="lazy"
+                    >
+                    <div class="photo-caption">
+                        <h3>PDU Quest</h3>
+                        <p>Componente eléctrico del rack.</p>
+                    </div>
                 </article>
+
             </div>
         </section>
 
+        <!-- GESTIÓN DEL INVENTARIO -->
         <section class="panel management-panel section-panel" id="gestion">
             <div class="section-heading">
                 <div>
@@ -326,28 +364,36 @@
 
                     <label for="equipo-vlan">
                         VLAN
-                        <input type="text" id="equipo-vlan" maxlength="100" placeholder="Ej. 10, 20, 30">
+                        <input type="text" id="equipo-vlan" maxlength="100"
+                               placeholder="Ej. 10, 20, 30">
                     </label>
 
                     <label for="equipo-ip">
                         IP / información lógica
-                        <input type="text" id="equipo-ip" maxlength="100" placeholder="Dato registrado o N/A">
+                        <input type="text" id="equipo-ip" maxlength="100"
+                               placeholder="Dato registrado o N/A">
                     </label>
 
                     <label for="equipo-electrica">
                         Información eléctrica
-                        <input type="text" id="equipo-electrica" maxlength="150" placeholder="Ej. PDU Quest">
+                        <input type="text" id="equipo-electrica" maxlength="150"
+                               placeholder="Ej. PDU Quest">
                     </label>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" id="guardar-equipo" class="primary-button">Agregar equipo</button>
-                    <button type="button" id="cancelar-edicion" class="secondary-button" hidden>
+                    <button type="submit" id="guardar-equipo" class="primary-button">
+                        Agregar equipo
+                    </button>
+
+                    <button type="button" id="cancelar-edicion"
+                            class="secondary-button" hidden>
                         Cancelar edición
                     </button>
                 </div>
 
-                <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+                <p id="form-message" class="form-message"
+                   role="status" aria-live="polite"></p>
             </form>
 
             <div class="backup-actions">
@@ -357,7 +403,8 @@
 
                 <label class="import-button" for="importar-inventario">
                     Importar inventario JSON
-                    <input type="file" id="importar-inventario" accept=".json,application/json">
+                    <input type="file" id="importar-inventario"
+                           accept=".json,application/json">
                 </label>
             </div>
 
@@ -367,6 +414,7 @@
             </p>
         </section>
 
+        <!-- TABLA DE INVENTARIO -->
         <section class="panel inventory-panel section-panel">
             <div class="section-heading">
                 <div>
@@ -392,6 +440,7 @@
             </div>
         </section>
 
+        <!-- PROMPT IA -->
         <section class="panel section-panel" id="prompt-ia">
             <div class="section-heading">
                 <div>
@@ -415,13 +464,16 @@
                     datos físicos, lógicos y eléctricos. No inventes modelos, VLAN,
                     direcciones IP ni evidencias fotográficas.
                 </p>
+
                 <button type="button" id="copiar-prompt" class="secondary-button">
                     Copiar prompt
                 </button>
+
                 <p id="prompt-message" class="small-note" aria-live="polite"></p>
             </div>
         </section>
 
+        <!-- GITHUB -->
         <section class="panel section-panel" id="github">
             <div class="section-heading">
                 <div>
@@ -441,10 +493,12 @@
                 <div>
                     <strong>RackScope IA — Repositorio</strong>
                     <p>Consulta los archivos, commits y versiones publicadas.</p>
-                    <a href="https://github.com/samu080901/trabajo" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/samu080901/trabajo"
+                       target="_blank" rel="noopener noreferrer">
                         github.com/samu080901/trabajo
                     </a>
                 </div>
+
                 <a class="primary-button link-button"
                    href="https://samu080901.github.io/trabajo/"
                    target="_blank" rel="noopener noreferrer">
@@ -453,6 +507,7 @@
             </div>
         </section>
 
+        <!-- GLOSARIO Y FUENTES -->
         <section class="panel section-panel" id="glosario">
             <div class="section-heading">
                 <div>
@@ -467,18 +522,22 @@
                     <h3>Unidad U</h3>
                     <p>Medida vertical utilizada para expresar la altura de equipos de rack.</p>
                 </article>
+
                 <article>
                     <h3>VLAN</h3>
                     <p>Red de área local virtual que permite segmentar una red lógica.</p>
                 </article>
+
                 <article>
                     <h3>IP</h3>
                     <p>Dirección utilizada para identificar una interfaz dentro de una red IP.</p>
                 </article>
+
                 <article>
                     <h3>PDU</h3>
                     <p>Unidad de distribución de energía eléctrica para equipos.</p>
                 </article>
+
                 <article>
                     <h3>Inventario JSON</h3>
                     <p>Archivo estructurado que almacena la configuración del rack y sus equipos.</p>
@@ -486,27 +545,35 @@
             </div>
 
             <h3 class="sources-heading">Fuentes de consulta</h3>
+
             <ul class="source-list">
                 <li>
-                    <a href="https://www.tiaonline.org/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.tiaonline.org/"
+                       target="_blank" rel="noopener noreferrer">
                         Telecommunications Industry Association (TIA)
                     </a>
                     — información institucional sobre normas de telecomunicaciones.
                 </li>
+
                 <li>
-                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript"
+                       target="_blank" rel="noopener noreferrer">
                         MDN Web Docs: JavaScript
                     </a>
                     — referencia de programación web.
                 </li>
+
                 <li>
-                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="noopener noreferrer">
+                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+                       target="_blank" rel="noopener noreferrer">
                         MDN Web Docs: JSON
                     </a>
                     — documentación sobre el formato de datos JSON.
                 </li>
+
                 <li>
-                    <a href="https://docs.github.com/es" target="_blank" rel="noopener noreferrer">
+                    <a href="https://docs.github.com/es"
+                       target="_blank" rel="noopener noreferrer">
                         Documentación oficial de GitHub
                     </a>
                     — repositorios y control de versiones.
@@ -519,8 +586,10 @@
                 del laboratorio con evidencia real.
             </p>
         </section>
+
     </main>
 
+    <!-- PIE DE PÁGINA -->
     <footer class="footer">
         <strong>RackScope IA</strong>
         <p>Proyecto académico · Cableado Estructurado</p>
@@ -528,3 +597,4 @@
     </footer>
 </body>
 </html>
+```
