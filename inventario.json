@@ -1,3 +1,4 @@
+
 {
   "rack_config": {
     "nombre_rack": "RACK-LABORATORIO-REDES",
@@ -6,7 +7,6 @@
     "sede": "Universidad Compensar",
     "cuarto_telecom": "Laboratorio de Redes y Telecomunicaciones"
   },
-
   "equipos": [
     {
       "u_inicio": 25,
@@ -18,7 +18,6 @@
       "ip": "192.168.1.1",
       "electrica": "PDU Quest 1U"
     },
-
     {
       "u_inicio": 23,
       "u_fin": 23,
@@ -29,7 +28,6 @@
       "ip": "Layer 3",
       "electrica": "PDU Quest 1U"
     },
-
     {
       "u_inicio": 21,
       "u_fin": 21,
@@ -40,7 +38,6 @@
       "ip": "192.168.1.11",
       "electrica": "PDU Quest 1U"
     },
-
     {
       "u_inicio": 16,
       "u_fin": 17,
@@ -51,7 +48,6 @@
       "ip": "N/A",
       "electrica": "N/A"
     },
-
     {
       "u_inicio": 14,
       "u_fin": 14,
@@ -62,7 +58,6 @@
       "ip": "Prácticas CLI",
       "electrica": "PDU Quest 1U"
     },
-
     {
       "u_inicio": 12,
       "u_fin": 12,
@@ -73,7 +68,6 @@
       "ip": "N/A",
       "electrica": "PDU Quest 1U"
     },
-
     {
       "u_inicio": 10,
       "u_fin": 10,
@@ -84,7 +78,6 @@
       "ip": "N/A",
       "electrica": "PDU Quest 1U"
     },
-
     {
       "u_inicio": 2,
       "u_fin": 3,

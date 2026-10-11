@@ -1,67 +1,61 @@
-RackScope IA
-Cableado Estructurado Dashboard
+# RackScope IA
+## Dashboard de Cableado Estructurado
 
-Este proyecto es una página web para mostrar la información de un rack de comunicaciones de 28U del Laboratorio de Redes.
+Proyecto académico para visualizar y consultar el inventario de un rack de comunicaciones de 28U del Laboratorio de Redes y Telecomunicaciones.
 
-La página permite ver los equipos que están ubicados en el rack y consultar algunos datos de cada uno, como el modelo, estado, VLAN, IP y alimentación.
+### Funcionalidades
+- Visualización del rack y sus unidades U.
+- Consulta de los equipos registrados.
+- Inventario con información de los dispositivos.
+- Datos de VLAN, IP y alimentación eléctrica.
+- Fotografías del rack y la PDU.
+- Diseño adaptable a diferentes pantallas.
+- Respaldo del inventario en formato JSON.
 
-Lo que tiene la página
-Vista del rack de 28U.
-Equipos organizados por unidad U.
-Información de los equipos al seleccionarlos.
-Tabla con el inventario.
-Datos de VLAN, IP y alimentación.
-Fotos de la PDU.
-Diseño adaptable a diferentes pantallas.
-Equipos
+### Equipos registrados
+1. Router Cisco 4300.
+2. Switch Catalyst C9300L-24.
+3. Switch 48P Access.
+4. Bandeja Lanza Cables.
+5. Router Cisco ISR 4200.
+6. Switch Capa 3 Cisco.
+7. Switch Huawei eKitEngine.
+8. PDU Quest 8 Salidas.
 
-En el inventario se registraron 8 elementos:
-
-Router Cisco 4300
-Switch Catalyst C9300L-24
-Switch 48P Access
-Bandeja Lanza Cables
-Router Cisco ISR 4200
-Switch Capa 3 Cisco
-Switch Huawei eKitEngine
-PDU Quest 8 Salidas
-Archivos del proyecto
-RackScope-IA/
-│
+### Estructura del proyecto
+```text
+rackscope-dashboard/
 ├── index.html
+├── README.md
+├── .gitignore
 ├── inventario.json
+├── data/
+│   └── inventario-respaldo.json
 ├── css/
 │   └── styles.css
 ├── js/
 │   └── app.js
 ├── img/
-│   ├── pdu1.jpg
-│   ├── pdu2.jpg
-│   └── pdu3.jpg
-└── README.md
-Tecnologías
-HTML
-CSS
-JavaScript
-JSON
-Git y GitHub
-Cómo funciona
+└── evidencias/
+```
 
-Los datos de los equipos están guardados en inventario.json.
+### Tecnologías
+- HTML
+- CSS
+- JavaScript
+- JSON
+- Git y GitHub
 
-El archivo app.js toma esa información y la muestra en la página. De esta forma se puede ver el rack, los equipos y la tabla del inventario sin tener que escribir cada elemento directamente en el HTML.
+### Ejecución
+Abrir la carpeta del proyecto en Visual Studio Code y ejecutar `index.html` mediante Live Server para que se cargue correctamente el archivo JSON.
 
-Para probar el proyecto de forma local se puede abrir index.html usando Live Server en Visual Studio Code.
+### Información del rack
+- **Nombre:** RACK-LABORATORIO-REDES
+- **Capacidad:** 28U
+- **Sede:** Universidad Compensar
+- **Ubicación:** Laboratorio de Redes y Telecomunicaciones
 
-Información del rack
+### Versión
+**v1.0.0**
 
-Rack: RACK-LABORATORIO-REDES
-Capacidad: 28U
-Sede: Universidad Compensar
-Lugar: Laboratorio de Redes y Telecomunicaciones
-
-Versión
-
-v1.0.0
-
-Proyecto académico — RackScope IA
+Proyecto académico — RackScope IA.

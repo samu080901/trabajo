@@ -1,0 +1,92 @@
+
+{
+  "rack_config": {
+    "nombre_rack": "RACK-LABORATORIO-REDES",
+    "capacidad_u": 28,
+    "orientacion_u": "ascendente",
+    "sede": "Universidad Compensar",
+    "cuarto_telecom": "Laboratorio de Redes y Telecomunicaciones"
+  },
+  "equipos": [
+    {
+      "u_inicio": 25,
+      "u_fin": 25,
+      "nombre": "Router Cisco 4300",
+      "modelo": "Cisco ISR 4331",
+      "estado": "Confirmado",
+      "vlan": "1",
+      "ip": "192.168.1.1",
+      "electrica": "PDU Quest 1U"
+    },
+    {
+      "u_inicio": 23,
+      "u_fin": 23,
+      "nombre": "Switch Catalyst C9300L-24",
+      "modelo": "C9300L-24T-4X",
+      "estado": "Confirmado",
+      "vlan": "10, 20, 30",
+      "ip": "Layer 3",
+      "electrica": "PDU Quest 1U"
+    },
+    {
+      "u_inicio": 21,
+      "u_fin": 21,
+      "nombre": "Switch 48P Access",
+      "modelo": "Cisco Catalyst 2960",
+      "estado": "Confirmado",
+      "vlan": "10",
+      "ip": "192.168.1.11",
+      "electrica": "PDU Quest 1U"
+    },
+    {
+      "u_inicio": 16,
+      "u_fin": 17,
+      "nombre": "Bandeja Lanza Cables",
+      "modelo": "Organizador Horizontal 2U",
+      "estado": "Confirmado",
+      "vlan": "N/A",
+      "ip": "N/A",
+      "electrica": "N/A"
+    },
+    {
+      "u_inicio": 14,
+      "u_fin": 14,
+      "nombre": "Router Cisco ISR 4200",
+      "modelo": "Cisco ISR 4221/4321",
+      "estado": "Confirmado",
+      "vlan": "50",
+      "ip": "Prácticas CLI",
+      "electrica": "PDU Quest 1U"
+    },
+    {
+      "u_inicio": 12,
+      "u_fin": 12,
+      "nombre": "Switch Capa 3 Cisco",
+      "modelo": "Cisco Catalyst 3560",
+      "estado": "Confirmado",
+      "vlan": "1",
+      "ip": "N/A",
+      "electrica": "PDU Quest 1U"
+    },
+    {
+      "u_inicio": 10,
+      "u_fin": 10,
+      "nombre": "Switch Huawei eKitEngine",
+      "modelo": "eKitEngine S220",
+      "estado": "Confirmado",
+      "vlan": "N/A",
+      "ip": "N/A",
+      "electrica": "PDU Quest 1U"
+    },
+    {
+      "u_inicio": 2,
+      "u_fin": 3,
+      "nombre": "PDU Quest 8 Salidas",
+      "modelo": "Quest Power Strip",
+      "estado": "Confirmado",
+      "vlan": "N/A",
+      "ip": "N/A",
+      "electrica": "Alimentación del rack"
+    }
+  ]
+}
